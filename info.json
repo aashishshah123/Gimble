@@ -1,0 +1,7 @@
+{
+    "name": "gimble",
+    "version": "0.0.1",
+    "speed": 20,
+    "rev": 500,
+    "ser": 38400
+}
