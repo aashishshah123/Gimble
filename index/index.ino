@@ -27,6 +27,8 @@ int state = 0;
 //config
 
 Servo zservo;
+Servo yservo;
+Servo xservo;
 
 void setup() {
   // join I2C bus (I2Cdev library doesn't do this automatically)
@@ -47,6 +49,8 @@ void setup() {
   Serial.println("Testing device connections...");
   Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
 zservo.attach(6);
+yservo.attach(5);
+xservo.attach(4);
   x = accelgyro.getXGyroOffset();
   y = accelgyro.getYGyroOffset();
   z = accelgyro.getZGyroOffset();
@@ -58,6 +62,10 @@ zservo.attach(6);
 void runMotor() {
   delay(100);
 zservo.write(-z);
+  delay(100);
+ yservo.write(-y);
+  delay(100);
+ yservo.write(-x);
 
 }
 
@@ -75,6 +83,4 @@ void loop() {
   //checking if motor works
 
   runMotor();
-
-  
 }
